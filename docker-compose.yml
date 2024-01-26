@@ -1,0 +1,23 @@
+# Specify version
+version: "3.11.7"
+
+# Define all services we want to run in container
+services:
+  app:
+    build: .
+
+    # Define volume
+    volumes:
+      - .:/polls
+
+    # Define ports
+    ports:
+      - 8000:8000
+
+    # Define image
+    image: polls_app:django
+
+    # Specify container name
+    container_name: django_container
+
+    command: python manage.py runserver 0.0.0.0:8000
