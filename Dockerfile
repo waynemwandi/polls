@@ -1,22 +1,13 @@
-## Add OS image with Python 
-FROM python:3.11.7-bookworm
+FROM python:3.11.7
 
-## Python output is sent to container logs
+WORKDIR /app
+
 ENV PYTHONBUFFERED=1
 
-## Create working directory
-WORKDIR /polls_django
+RUN pip install --upgrade pip
 
-## Copy requirements 
-COPY requirements.txt requirements.txt
+COPY ./requirements.txt .
 
-## Run requirements
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 
-## Copy project files to working directory
 COPY . .
-
-## Run Django app
-CMD python manage.py runserver 0.0.0.0:8000
-
-# MySQL

@@ -9,3 +9,7 @@
 3. Docker image
 
 4. Docker container
+
+## Fix for django container not seeing the
+
+`docker-compose run app python manage.py migrate`
